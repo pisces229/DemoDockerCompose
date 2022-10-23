@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  demodockercompose.firstapp:
+    image: ${DOCKER_REGISTRY-}demodockercomposefirstapp
+    build:
+      context: .
+      dockerfile: DemoDockerCompose.FirstApp/Dockerfile
+  demodockercompose.secondapp:
+    image: ${DOCKER_REGISTRY-}demodockercomposesecondapp
+    build:
+      context: .
+      dockerfile: DemoDockerCompose.SecondApp/Dockerfile
+  redis:
+    image: redis

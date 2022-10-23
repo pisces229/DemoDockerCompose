@@ -1,0 +1,41 @@
+version: '3.4'
+services:
+  nginx:
+    image: nginx
+    networks:
+      - app.network
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8080:80
+    depends_on:
+      - first
+      - second
+  first:
+    image: demodockercompose.first
+    networks:
+      - app.network
+    ports:
+      - 8081:80
+    depends_on:
+      - redis
+  second:
+    image: demodockercompose.second
+    networks:
+      - app.network
+    ports:
+      - 8082:80
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    networks:
+      - app.network
+    volumes:
+      - redis.volume:/data
+    ports:
+      - 6379:6379
+networks:
+  app.network:
+volumes:
+  redis.volume:

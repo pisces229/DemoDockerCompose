@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  demodockercompose.firstapp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+  demodockercompose.secondapp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+  redis:
+    ports:
+      - 6379:6379
