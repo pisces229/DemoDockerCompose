@@ -16,6 +16,8 @@
 
 ## Publish
 
+`docker build -f DemoDockerCompose.App\Dockerfile -t demodockercompose.app .`
+
 `docker build -f Nginx\Dockerfile -t demodockercompose.nginx .`
 
 `docker build -f DemoDockerCompose.FirstApp\Dockerfile -t demodockercompose.first .`
@@ -24,7 +26,15 @@
 
 `docker compose -p demodockercompose -f publish.yml up -d`
 
-# Other
+`docker compose -p demodockercompose -f publish.yml -f publish.prod.yml up -d`
+
+`docker compose -p demodockercompose -f publish.yml down -d`
+
+## Other
 
 `docker cp <source> <container>:<target>`
+
+## Kubernetes
+
+`kubectl run aspnetapp-interactive-delopyment --image demodockercompose.app:latest --port=80 --replicas=3`
 
