@@ -29,12 +29,3 @@
 `docker compose -p demodockercompose -f publish.yml -f publish.prod.yml up -d`
 
 `docker compose -p demodockercompose -f publish.yml down -d`
-
-## Other
-
-`docker cp <source> <container>:<target>`
-
-## Kubernetes
-
-`kubectl run aspnetapp-interactive-delopyment --image demodockercompose.app:latest --port=80 --replicas=3`
-
